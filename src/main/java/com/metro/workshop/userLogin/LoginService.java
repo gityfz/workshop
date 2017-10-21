@@ -17,16 +17,16 @@ import java.util.UUID;
  * Created by qiujl on 2017/10/18.
  */
 @Service
-public class loginService {
+public class LoginService {
 
     @Autowired
-    userLoginDao userlogindao;
+    UserLoginDao userlogindao;
 
     @Autowired
     UserDao userdao;
 
     @Autowired
-    tokenDao tokendao;
+    TokenDao tokendao;
 
 //    public Employee getEmployee(int id) {
 //        return employeedao.selectById(id);

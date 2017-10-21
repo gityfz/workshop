@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.*;
  * Created by qiujl on 2017/10/18.
  */
 @Mapper
-public interface userLoginDao {
+public interface UserLoginDao {
 
     String TABLE_NAME1 = "userlogin";
     String SELECT = "select";

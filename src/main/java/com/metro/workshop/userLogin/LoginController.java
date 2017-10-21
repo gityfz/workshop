@@ -15,10 +15,10 @@ import java.util.Map;
  * Created by qiujl on 2017/10/18.
  */
 @Controller
-public class loginController {
+public class LoginController {
 
     @Autowired
-    loginService loginService;
+    LoginService loginService;
 
 
     @RequestMapping(path = {"/login/"}, method = {RequestMethod.POST})

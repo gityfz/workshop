@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.*;
  * Created by qiujl on 2017/10/21.
  */
 @Mapper
-public interface tokenDao {
+public interface TokenDao {
     String TABLE_NAME = "token";
     String INSERT_FIELDS = " employee_id,login_time,token,status";
     String SELECT_FIELDS = "id ," + INSERT_FIELDS;
