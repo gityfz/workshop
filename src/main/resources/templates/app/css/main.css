@@ -1,0 +1,18 @@
+#header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+}
+#footer{
+    width: 100%;
+    position: fixed;
+    bottom: -80px;
+    left: 0;
+    width: 100%;
+    height: 122px;
+    line-height: 42px;
+    color: #8b8b8b;
+    z-index: 99;
+    background: #272727;
+}
