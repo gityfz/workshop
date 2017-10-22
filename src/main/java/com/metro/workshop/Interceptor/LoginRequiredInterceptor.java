@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
  * Created by qiujl on 2017/10/21.
  */
 @Component
-public class LoginRequiredInterceptor implements HandlerInterceptor {@Autowired
-private HostHolder hostHolder;
+public class LoginRequiredInterceptor implements HandlerInterceptor {
+
+    @Autowired
+    private HostHolder hostHolder;
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {

@@ -3,12 +3,15 @@ package com.metro.workshop.userLogin;
 import com.metro.workshop.Entity.User;
 import com.metro.workshop.Entity.UserLogin;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 /**
  * Created by qiujl on 2017/10/21.
  */
+
+@Mapper
 public interface UserDao {
     String TABLE_NAME1 = "user";
     String SELECT = "select";
