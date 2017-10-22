@@ -1,5 +1,6 @@
 package com.metro.workshop.userLogin;
 
+import com.metro.workshop.Utils.HostHolder;
 import com.metro.workshop.Utils.wkUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,16 +17,30 @@ import java.util.Map;
  * Created by qiujl on 2017/10/18.
  */
 @Controller
+@RequestMapping
 public class LoginController {
 
     @Autowired
     LoginService loginService;
 
+    @Autowired
+    private HostHolder hostHolder;
 
+    @RequestMapping
+    public String  homepage(HttpServletRequest request,HttpServletResponse response){
+        if(hostHolder.getUser()!=null){
+            return "index";
+        }
+        return "login";
+    }
+
+@ResponseBody
     @RequestMapping(path = {"/login/"}, method = {RequestMethod.POST})
-    public String login(Model model, @RequestParam("emloyeeId") String emloyeeId,
+    public String login(
+            Model model, @RequestParam("emloyeeId") String emloyeeId,
                       @RequestParam("password") String password,
-                      @RequestParam(value="rember", defaultValue = "0") int rem, HttpServletResponse response){
+                      @RequestParam(value="rember", defaultValue = "0") int rem, HttpServletResponse response
+    ){
         Map<String,Object> map=new HashMap<String,Object>();
         map=loginService.login(emloyeeId,password);
         if(map.containsKey("token")){

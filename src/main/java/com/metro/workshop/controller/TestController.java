@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping
 public class TestController {
 
-    @RequestMapping
-    @ResponseBody
-    public String test(HttpServletRequest request, HttpServletResponse response){
-        return  "HI,sb";
-    }
-
-    @RequestMapping("/home")
-    public String test2(HttpServletRequest request, HttpServletResponse response){
-
-
-        return  "app/login";
-    }
+//    @RequestMapping
+//    @ResponseBody
+//    public String test(HttpServletRequest request, HttpServletResponse response){
+//        return  "HI,sb";
+//    }
+//
+//    @RequestMapping("/home")
+//    public String test2(HttpServletRequest request, HttpServletResponse response){
+//
+//
+//        return  "app/login";
+//    }
 }
