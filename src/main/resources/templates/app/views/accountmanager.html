@@ -5,14 +5,159 @@
             <span class="caption-subject bold uppercase">账号管理</span>
         </div>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <button class="btn btn-primary col-md-2"></button>
-            <button class="btn btn-primary col-md-2"></button>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 个人信息
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-10 account-manger-div" >
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-10 account-subtitle" style="margin: -10px 0 10px -10px;">管理员权限</div>
+        <button type="button" class="global-button margin-right-10" aria-label="Left Align"
+                ng-click="clickaddbutton()">
+            <span class="glyphicon glyphicon-plus margin-right-10" aria-hidden="true" ></span><span
+                class="inner-text margin-left-10">新增员工</span>
+        </button>
+        <button type="button" class="margin-right-10 global-button" aria-label="Left Align" style="width:160px"
+                data-toggle="modal" data-target="#delAccount">
+            <span class="glyphicon glyphicon-edit margin-right-10" aria-hidden="true" ></span><span
+                class="inner-text margin-left-10">更正员工信息</span>
+        </button>
+
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-10 account-message-div" style="min-height: 200px" >
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-10 account-subtitle" style="margin-bottom: 15px">员工个人信息</div>
+        <div class="col-md-12">员工姓名：{{employeename}} </div>
+        <div class="col-md-12">员工工号：{{employeename}} </div>
+        <div class="col-md-12">性别：{{employeename}} </div>
+        <div class="col-md-12">员工岗位：{{employeename}} </div>
+        <button type="button" class="margin-left-10 global-button" aria-label="Left Align"
+                data-toggle="modal" data-target=".add" style="margin:10px 0 0 15px">
+            <span class="glyphicon glyphicon-edit margin-right-10" aria-hidden="true"></span><span
+                class="inner-text  margin-left-10">修改密码</span>
+        </button>
+    </div>
+
+
+    <div class="modal fade add" id="addAccountModal">
+        <div class="modal-dialog modal-sm " style="margin: 300px auto;width: 537px;height:332px">
+            <div class="modal-content modal-all be-radius">
+                <div class="modal-header modal-title-account">
+                    <div>新增员工</div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-12">
+                        <form  class="form-horizontal" id="newaccountform" name="newaccountform" style="margin-top: 30px"
+                               role="form">
+                            <div class="form-group margin-bottom-26">
+                                <label class="col-md-3 control-label modal-label">
+                                    员工工号：
+                                </label>
+                                <div class="col-md-5 be-radius">
+                                    <input type="text" class="form-control modal-input be-radius" placeholder="请输入员工工号"
+                                           name="name" ng-model="newAccount.username" />
+                                </div>
+                            </div>
+
+                            <!--<div class="form-group margin-bottom-26">-->
+                                <!--<label class="col-md-3 control-label modal-label">-->
+                                    <!--密码：-->
+                                <!--</label>-->
+                                <!--<div class="col-md-5">-->
+                                    <!--<input type="password" id="password" class="form-control modal-input" placeholder="密码"-->
+                                           <!--name="password" ng-model="newAccount.password" />-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <div class="form-group margin-bottom-26">
+                                <label class="col-md-3 control-label modal-label">
+                                    员工姓名：
+                                </label>
+                                <div class="col-md-5 be-radius">
+                                    <input type="password" class="form-control modal-input be-radius" placeholder="输入员工姓名"
+                                           name="repeat" ng-model="newAccount.identify" />
+                                </div>
+                            </div>
+                            <div class="form-group margin-bottom-26">
+                                <label class="col-md-3 control-label modal-label">
+                                    员工性别：
+                                </label>
+                                <div class="col-md-5">
+                                    <select ng-model="newAccount.role" required style="margin-top:5px" name="role">
+                                        <option value="0" >男</option>
+                                        <option value="1" >女</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group margin-bottom-26">
+                                <label class="col-md-3 control-label modal-label">
+                                    员工岗位：
+                                </label>
+                                <div class="col-md-5">
+                                    <select ng-model="newAccount.role" required style="margin-top:5px" name="role">
+                                        <option value="40" >维修工</option>
+                                        <option value="30" >工长</option>
+                                        <option value="31" >工长(代)</option>
+                                        <option value="20" >技术组组长</option>
+                                        <option value="21" >工程师</option>
+                                        <option value="22" >技术员</option>
+                                        <option value="23" >培训生(培养)</option>
+                                        <option value="24" >考勤员</option>
+                                        <option value="10" >车间主任</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group margin-bottom-26">
+                                <label class="col-md-3 control-label modal-label">
+                                    所属班组：
+                                </label>
+                                <div class="col-md-5">
+                                    <select ng-model="newAccount.role" required style="margin-top:5px" name="role">
+                                        <option value="40" >1</option>
+                                        <option value="30" >1</option>
+                                        <option value="31" >2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group margin-bottom-26">
+                                <label class="col-md-3 control-label modal-label">
+                                    所属车间：
+                                </label>
+                                <div class="col-md-5">
+                                    <select ng-model="newAccount.role" required style="margin-top:5px" name="role">
+                                        <option value="40" >1</option>
+                                        <option value="30" >1</option>
+                                        <option value="31" >2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group margin-bottom-26">
+                                <label class="col-md-3 control-label modal-label">
+                                    员工详情：
+                                </label>
+                                <div class="col-md-5">
+                                    <textarea ng-model=""></textarea>
+                                </div>
+                            </div>
+                            <!--<div class="form-group margin-bottom-26"-->
+                            <!--ng-show="newAccount.identify && newAccount.identify!=newAccount.password">-->
+                            <!--<div class="col-md-offset-1 col-md-5">-->
+                            <!--两次输入的密码不一致-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <div style="border-bottom:1px solid #e5e5e5;margin:31px 19px 15px 20px;"></div>
+                            <div class="form-group" style="margin-right: -20px">
+                                <div class="col-md-offset-5 col-md-7">
+                                    <button class="be-radius col-md-offset-1 btn btn-default col-md-5 margin-right-10 modal-button"
+                                            type="submit" name="newAccountSubmit" ng-click="postAccountData()"
+                                            style="background-color: #0076e1;color: #fff">新增员工
+                                    </button>
+                                    <button class="be-radius btn btn-default col-md-5 modal-button" type="button" data-dismiss="modal"
+                                            style="margin-right:-5px">取消
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 </div>

@@ -16,3 +16,14 @@
     z-index: 99;
     background: #272727;
 }
+.global-button{
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px !important;
+    width: 118px;
+    height: 33px;
+}
+
+.be-radius{
+    border-radius: 5px !important;
+}

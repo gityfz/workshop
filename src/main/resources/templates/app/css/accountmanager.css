@@ -1,0 +1,22 @@
+.account-subtitle{
+    font-size:14px ;
+    font-weight: 700;
+}
+.account-manger-div{
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f0f4f7;
+    min-height:90px;
+}
+
+.account-message-div{
+    border: 1.5px solid #0c91e5;
+    border-radius: 5px !important;
+    width: 90%;
+    min-width: 800px;
+    margin-left: 15px;
+}
+
+.account-message-div>div{
+    margin-bottom: 5px;
+
+}

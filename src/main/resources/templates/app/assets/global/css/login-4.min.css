@@ -127,9 +127,7 @@
     font-size: 13px
 }
 
-.be-radius{
-    border-radius: 5px !important;
-}
+
 
 @media (max-width: 480px) {
     .login .logo {
