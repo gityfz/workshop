@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class User {
     private int id;
-    private int employeeId;
+    private String employeeId;
     private String hearUrl;
     private String employeeName;
     private String employeeSex;//0：男性;1：女性
@@ -28,11 +28,11 @@ public class User {
         this.id = id;
     }
 
-    public int getEmployeeId() {
+    public String getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(int employeeId) {
+    public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
 
