@@ -103,7 +103,7 @@ public class LoginService {
     private String addLoginTicket(String employeeId) {
 
         Token token = new Token();
-        token.setEmployeId(employeeId);
+        token.setEmployeeId(employeeId);
         Date date = new Date();
         date.setTime(date.getTime() + 1000*3600*24);
         token.setLoginTime(date);

@@ -18,7 +18,7 @@ public interface UserDao {
     String UPDATE = "update";
     String INSERT = "insert into";
 
-    String INSERT_FIELDS = " employee_id, hear_url, employee_name, employee_sex, employee_type, employee_level,employee_describe,group_id,del_flag,set_time,update_time ";
+    String INSERT_FIELDS = " employee_id, head_url, employee_name, employee_sex, employee_type, employee_level,employee_describe,group_id,del_flag,set_time,update_time ";
 
     String SELECT_FIELDS = " id, "+INSERT_FIELDS;
 

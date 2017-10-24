@@ -1,5 +1,6 @@
 package com.metro.workshop.userLogin;
 
+import com.metro.workshop.Entity.User;
 import com.metro.workshop.Utils.HostHolder;
 import com.metro.workshop.Utils.wkUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +35,10 @@ public class LoginController {
         return "login";
     }
 
-@ResponseBody
+
     @RequestMapping(path = {"/login/"}, method = {RequestMethod.POST})
     public String login(
-            Model model, @RequestParam("emloyeeId") String emloyeeId,
+            Model model, @RequestParam("login") String emloyeeId,
                       @RequestParam("password") String password,
                       @RequestParam(value="rember", defaultValue = "0") int rem, HttpServletResponse response
     ){
@@ -50,10 +51,12 @@ public class LoginController {
                 cookie.setMaxAge(3600 * 24 * 5);
             }
             response.addCookie(cookie);
+            User user=(User)map.get("user");
+            cookie=new Cookie("login",user.getEmployeeLevel());
 
-            return wkUtils.getJSONString(0, map);
+            return "index";
         }else{
-            return wkUtils.getJSONString(1, map);
+            return "login";
         }
     }
 

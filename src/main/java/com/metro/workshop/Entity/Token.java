@@ -10,7 +10,7 @@ public class Token {
 
     private int id;
 
-    private String employeId;
+    private String employeeId;
 
     private Date loginTime;
 
@@ -34,12 +34,12 @@ public class Token {
         this.id = id;
     }
 
-    public String getEmployeId() {
-        return employeId;
+    public String getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployeId(String employeId) {
-        this.employeId = employeId;
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getToken() {
