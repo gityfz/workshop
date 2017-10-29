@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by qiujl on 2017/10/21.
  */
 public class Group {
-    private String id;
+    private int id;
     private String groupId;//班组编码
     private String workshopId;
     private int groupHc;//班组人数
