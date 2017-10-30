@@ -26,7 +26,7 @@ public interface UserDao {
             INSERT, TABLE_NAME1, "(", INSERT_FIELDS,
             ") Values (#{employeeId}, #{hearUrl}, #{employeeName}, #{employeeSex},#{employeeType}, #{employeeLevel}, #{employeeDescribe}, #{groupId}, #{delFlag},#{setTime}, #{updateTime})"
     })
-    int addUser(UserLogin userLogin);
+    int addUser(User user);
 
     @Select({SELECT, SELECT_FIELDS, "from ", TABLE_NAME1, " where employee_id=#{employeeId}"})
     User selsectUserForUserId(String employeeId);

@@ -1,6 +1,7 @@
 package com.metro.workshop.userLogin;
 
 import com.metro.workshop.Entity.User;
+import com.metro.workshop.Entity.UserLogin;
 import com.metro.workshop.Utils.HostHolder;
 import com.metro.workshop.Utils.wkUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,47 +67,31 @@ public class LoginController {
 //        return "redirect:/";
 //    }
 //
-//    @RequestMapping(path = {"/reg/"}, method = {RequestMethod.GET, RequestMethod.POST})
-//    @ResponseBody
-//    public String register(Model model, @RequestParam("username") String username,
-//                           @RequestParam("password") String password,
-//                           @RequestParam(value="rember", defaultValue = "0") int rememberme,
-//                           HttpServletResponse response) {
-//        //Map<String, Object> map = userService.register(username, password);
-//        try {
-//            Map<String, Object> map = userService.register(username, password);
-//            if (map.containsKey("ticket")) {
-//                Cookie cookie = new Cookie("ticket", map.get("ticket").toString());
-//                cookie.setPath("/");//所有路径下
-//                if (rememberme > 0) {//最大存活天数
-//                    cookie.setMaxAge(3600 * 24 * 5);
-//                }
-//                response.addCookie(cookie);
-//                return wkUtils.getJSONString(0, "注册成功");
-//            }else {
-//                return wkUtils.getJSONString(1, map);
-//            }
-//        }catch(Exception e){ logger.error("注册异常" + e.getMessage());
-//            return ToutiaoUtils.getJSONString(1, "注册异常");
-//        }
-//    }
-//    @RequestMapping(path = {"/login/"}, method = {RequestMethod.GET, RequestMethod.POST})
-//    @ResponseBody
-//    public String login(Model model, @RequestParam("username") String username,
-//                        @RequestParam("password") String password,
-//                        @RequestParam(value="rember", defaultValue = "0") int rememberme,HttpServletResponse response){
-//        Map<String,Object> map=new HashMap<String,Object>();
-//        map=userService.login(username,password);
-//        if(map.containsKey("ticket")){
-//            Cookie cookie=new Cookie("ticket",map.get("ticket").toString());
-//            cookie.setPath("/");
-//            if (rememberme > 0) {//最大存活天数
-//                cookie.setMaxAge(3600 * 24 * 5);
-//            }
-//            response.addCookie(cookie);
-//            return ToutiaoUtils.getJSONString(0, map);
-//        }else{
-//            return ToutiaoUtils.getJSONString(1, map);
-//        }
-//    }
+    @RequestMapping(path = {"/reg/"}, method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public String register(Model model, @RequestBody String json,
+                           @RequestParam(value="rember", defaultValue = "0") int rememberme,
+                           HttpServletResponse response) {
+        try {
+            User user=new User();
+            UserLogin userLogin =new UserLogin();
+
+            //填充user愚userLogin
+
+            Map<String, Object> map = loginService.register(user, userLogin);
+            if (map.containsKey("ticket")) {
+                Cookie cookie = new Cookie("ticket", map.get("ticket").toString());
+                cookie.setPath("/");//所有路径下
+                if (rememberme > 0) {//最大存活天数
+                    cookie.setMaxAge(3600 * 24 * 5);
+                }
+                response.addCookie(cookie);
+                return "";
+            }else {
+                return wkUtils.getJSONString(1, map);
+            }
+        }catch(Exception e){
+            return "";
+        }
+    }
 }

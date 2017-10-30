@@ -28,46 +28,40 @@ public class LoginService {
     @Autowired
     TokenDao tokendao;
 
-//    public Employee getEmployee(int id) {
+//    public User getEmployee(int id) {
 //        return employeedao.selectById(id);
 //    }
 //
 //    public User getUserByName(String name) {
 //        return userdao.selectByName(name);
 //    }
-//    public Map<String,Object> register(String name, String password){
-//        Map<String,Object > map=new HashMap<String,Object>();
-//
-//        if(StringUtils.isBlank(name)){
-//            map.put("msgname","用户名不能为空");
-//            return map;
-//        }else if(StringUtils.isBlank(password)){
-//            map.put("msgpsw","密码不能为空");
-//            return map;
-//        }
-//
-//        //判断username是否被注册了
-//        if(userdao.selectByName(name)!=null){
-//            map.put("msgname","该用户已经被注册");
-//            return map;
-//        }
-//
-//        //注册
-//        User user=new User();
-//        user.setName(name);
-//        String head = String.format("http://images.nowcoder.com/head/%dt.png", new Random().nextInt(1000));
-//        user.setHeadUrl(head);
-//        //进行salt加密
-//        user.setSalt(UUID.randomUUID().toString().substring(0,5));
-//        password=password+user.getSalt();
-//        user.setPassword(ToutiaoUtils.MD5(password));
-//        userdao.addUser(user);
-//
-//        // 登陆
-//        String ticket = addLoginTicket(user.getId());
-//        map.put("ticket", ticket);
-//        return map;
-//    }
+    public Map<String,Object> register(User user, UserLogin userLogin){
+        Map<String,Object > map=new HashMap<String,Object>();
+        String employeeId=user.getEmployeeId();
+        String password=userLogin.getPassword();
+        if(StringUtils.isBlank(employeeId)){
+            map.put("msgname","用户名不能为空");
+            return map;
+        }else if(StringUtils.isBlank(password)){
+            map.put("msgpsw","密码不能为空");
+            return map;
+        }
+
+        //判断username是否被注册了
+        if(userdao.selsectUserForUserId(employeeId)!=null){
+            map.put("msgname","该用户已经被注册");
+            return map;
+        }
+
+        //进行salt加密
+        userLogin.setSalt(UUID.randomUUID().toString().substring(0,5));
+        password=password+userLogin.getSalt();
+        userLogin.setPassword(wkUtils.MD5(password));
+        userdao.addUser(user);
+
+        // 登陆
+        return map;
+    }
 
     public Map<String,Object> login(String employeeId, String password){
         Map<String,Object > map=new HashMap<String,Object>();
