@@ -54,9 +54,9 @@ public class LoginController {
             User user=(User)map.get("user");
             cookie=new Cookie("login",user.getEmployeeLevel());
 
-            return "index";
+            return "redirect:/";
         }else{
-            return "login";
+            return "redirect:/";
         }
     }
 
