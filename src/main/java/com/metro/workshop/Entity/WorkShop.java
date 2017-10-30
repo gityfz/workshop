@@ -7,18 +7,18 @@ import java.util.Date;
  * Created by qiujl on 2017/10/21.
  */
 public class WorkShop {
-    private String id;
+    private int id;
     private String workshopId;
     private String describe;
     private int delFlag;//0:存在;1:已删除
     private Date setTime;
     private Date updateTime;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
